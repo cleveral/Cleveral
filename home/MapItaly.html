@@ -1,0 +1,347 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>Marker Clustering</title>
+    <style>
+        /* Always set the map height explicitly to define the size of the div
+        * element that contains the map. */
+        #map {
+            height: 100%;
+        }
+        /* Optional: Makes the sample page fill the window. */
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="map"></div>
+    <script>
+
+        
+
+        function initMap() {
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 6,
+                center: { lat: 45.4384, lng: 10.9917 }
+            });
+
+            // Create an array of alphabetical characters used to label the markers.
+            var labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+            var labels2 = ['C1', 'C2', 'C3', 'C4', 'C5', 'C6', 'C7', 'C8', 'C9'];
+            var labels3 = ['Basilica di San Martino', 'Basilica di Santa Maria Maggiore',
+                'Cappella della Visitazione',
+                'Cappella di San Lorenzo di Lama di Reno',
+                'Chiesa dei Santi Angeli Custodi', 'Chiesa dei Santi Antonio e Andrea di Ceretolo',
+                'Chiesa dei Santi Carlo e Bernardino di Carpineta', 'Chiesa dei Santi Donnino e Sebastiano di Borgonuovo',
+                'Chiesa dei Santi Filippo e Giacomo'];
+
+            // Add some markers to the map.
+            // Note: The code uses the JavaScript Array.prototype.map() method to
+            // create an array of markers based on a given "locations" array.
+            // The map() method here has nothing to do with the Google Maps API.
+
+            local_path = "/img/mvp/";
+            var markers = locations.map(function (location, i) {
+                var marker = new google.maps.Marker({
+                    position: location,
+                    label: labels2[i % labels.length],
+                    icon: local_path + "strucA.png",
+                    url: "StructureDetail.aspx?idStructure=" + locations[i]["id"]
+                });
+                google.maps.event.addListener(marker, 'click', function () {
+                    window.location.href = this.url;
+                });
+                return marker;
+            });
+
+            var markers2 = locations2.map(function (location2, i) {
+                var marker = new google.maps.Marker({
+                    position: location2,
+                    label: labels[i % labels.length],
+                    icon: local_path + "strucW.png",
+                    url: "StructureDetail.aspx"
+                });
+                google.maps.event.addListener(marker, 'click', function () {
+                    window.location.href = this.url;
+                });
+                return marker;
+            });
+
+            var markers3 = locations3.map(function (location3, i) {
+                var marker = new google.maps.Marker({
+                    position: location3,
+                    label: labels[i % labels.length],
+                    icon: local_path + "strucOk.png",
+                    url: "StructureDetail.aspx"
+                });
+                google.maps.event.addListener(marker, 'click', function () {
+                    window.location.href = this.url;
+                });
+                return marker;
+            });
+            
+            
+
+
+            var clusterStyleAlarm = [{
+                textColor: 'black',
+                height: 53,
+                url: local_path + "a1.png",
+                width: 53
+            },
+            {
+                textColor: 'black',
+                height: 56,
+                url: local_path + "a2.png",
+                width: 56
+            },
+            {
+                textColor: 'black',
+                height: 66,
+                url: local_path + "a3.png",
+                width: 66
+            },
+            {
+                textColor: 'black',
+                height: 78,
+                url: local_path + "a4.png",
+                width: 78
+            },
+            {
+                textColor: 'black',
+                height: 90,
+                url: local_path + "a5.png",
+                width: 90
+            }];
+            var clusterStyleWarning = [{
+                textColor: 'black',
+                height: 53,
+                url: local_path + "w1.png",
+                width: 53
+            },
+            {
+                textColor: 'black',
+                height: 56,
+                url: local_path + "w2.png",
+                width: 56
+            },
+            {
+                textColor: 'black',
+                height: 66,
+                url: local_path + "w3.png",
+                width: 66
+            },
+            {
+                textColor: 'black',
+                height: 78,
+                url: local_path + "w4.png",
+                width: 78
+            },
+            {
+                textColor: 'black',
+                height: 90,
+                url: local_path + "w5.png",
+                width: 90
+            }];
+            var clusterStyleNormal = [{
+                textColor: 'black',
+                height: 53,
+                url: local_path + "ok1.png",
+                width: 53
+            },
+            {
+                textColor: 'black',
+                height: 56,
+                url: local_path + "ok2.png",
+                width: 56
+            },
+            {
+                textColor: 'black',
+                height: 66,
+                url: local_path + "ok3.png",
+                width: 66
+            },
+            {
+                textColor: 'black',
+                height: 78,
+                url: local_path + "ok4.png",
+                width: 78
+            },
+            {
+                textColor: 'black',
+                height: 90,
+                url: local_path + "ok5.png",
+                width: 90
+            }];
+
+            var mcOptionsAlarm = {
+                gridSize: 50,
+                styles: clusterStyleAlarm,
+                maxZoom: 15
+            };
+            var mcOptionsWarning = {
+                gridSize: 50,
+                styles: clusterStyleWarning,
+                maxZoom: 15
+            };
+            var mcOptionsNormal = {
+                gridSize: 50,
+                styles: clusterStyleNormal,
+                maxZoom: 15
+            };
+
+            // Add a marker clusterer to manage the markers.
+            //var markerCluster2 = new MarkerClusterer(map, markers2,
+            //    { imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m' });
+            
+            
+            var markerclusterer3 = new MarkerClusterer(map, markers3, mcOptionsNormal);
+            var markerclusterer2 = new MarkerClusterer(map, markers2, mcOptionsWarning);
+            var markerclusterer = new MarkerClusterer(map, markers, mcOptionsAlarm);
+            //var markerCluster = new MarkerClusterer(map, markers,
+            //    { imagePath: '/img/mvp/warning' });
+        }
+        var locations = [
+            { lat: 45.8401, lng: 8.7569, id:1 },
+            { lat: 45.9670, lng: 8.8406, id: 2 },
+            { lat: 45.8915, lng: 8.7566, id: 3 },
+            { lat: 46.0185, lng: 8.7878, id: 4 },
+            { lat: 45.7048, lng: 8.8767, id: 5 },
+            { lat: 45.6242, lng: 9.0360, id: 6 },
+            { lat: 43.8884, lng: 12.6114, id: 7 },
+                { lat: 43.9047, lng: 12.2859, id: 8},
+            { lat: 45.8865, lng: 9.1384, id: 9 }];
+       var locations2 = [{ lat: 45.9050, lng: 9.1799 },
+            { lat: 46.1871, lng: 10.1081 },
+            { lat: 46.1539, lng: 9.4609 },
+            { lat: 46.3091, lng: 9.3830 },
+            { lat: 46.1715, lng: 10.0610 },
+            { lat: 45.5447, lng: 9.1177 },
+            { lat: 45.3882, lng: 8.9846 },
+            { lat: 45.7294, lng: 9.7241 },
+            { lat: 45.8293, lng: 9.5717 },
+            
+            { lat: 45.4716, lng: 10.2982 },
+            { lat: 45.8925, lng: 10.1839 },
+            { lat: 45.8101, lng: 10.7899 },
+            { lat: 45.5451, lng: 10.3841 },
+            { lat: 45.5556, lng: 10.0734 },
+            { lat: 45.0772, lng: 9.2046 },
+            { lat: 45.1766, lng: 8.5944 },
+            { lat: 45.2594, lng: 9.2421 },
+            { lat: 45.0461, lng: 8.6808 },
+            { lat: 44.7963, lng: 9.2801 },
+            { lat: 45.1149, lng: 9.1552 },
+            { lat: 45.2884, lng: 9.0894 },
+            { lat: 45.1196, lng: 10.2770 },
+            { lat: 45.3044, lng: 9.9427 },
+            
+            { lat: 44.9525, lng: 10.8227 },
+            { lat: 44.9298, lng: 10.5974 },
+            { lat: 44.9919, lng: 10.7425 },
+            
+            { lat: 46.8205, lng: 10.5960 },
+           
+            
+             { lat: 45.0879, lng: 9.5936 },
+                { lat: 45.0915, lng: 9.9297 },
+                { lat: 44.8614, lng: 9.5438 },
+                { lat: 46.0483, lng: 12.5347 },
+                { lat: 46.1629, lng: 12.6612 },
+            { lat: 46.1179, lng: 11.2072 },
+            { lat: 45.9149, lng: 11.0228 }]
+       var locations3 = [{ lat: 45.2337, lng: 11.3979 },
+           { lat: 45.7115, lng: 8.9071 },
+            { lat: 45.7638, lng: 9.1303 },
+            { lat: 45.3370, lng: 9.7782 },
+            { lat: 45.2380, lng: 9.9278 },
+            { lat: 45.0561, lng: 10.1844 },
+            { lat: 45.1516, lng: 10.3829 },
+            { lat: 45.8404, lng: 9.0753 },
+            { lat: 46.1507, lng: 9.3257 },
+            { lat: 46.5941, lng: 11.5376 },
+            { lat: 46.5567, lng: 11.7531 },
+            { lat: 46.4310, lng: 11.1070 },
+            { lat: 46.0701, lng: 11.4936 },
+            { lat: 46.4947, lng: 11.3455 },
+             { lat: 46.4694, lng: 11.0527 },
+                { lat: 45.3089, lng: 11.3796 },
+                { lat: 45.5060, lng: 10.7351 },
+                { lat: 45.2694, lng: 11.2448 },
+                { lat: 45.3547, lng: 10.7344 },
+                { lat: 45.5223, lng: 11.3342 },
+                { lat: 45.4413, lng: 11.5809 },
+                { lat: 45.4583, lng: 11.3405 },
+                { lat: 45.4375, lng: 11.6726 },
+                { lat: 45.8621, lng: 11.3965 },
+                { lat: 45.7206, lng: 11.4539 },
+                { lat: 46.4463, lng: 12.3807 },
+                { lat: 46.2813, lng: 12.0657 },
+                { lat: 46.2526, lng: 12.0244 },
+                { lat: 46.4941, lng: 12.5459 },
+                { lat: 45.6872, lng: 12.2825 },
+                { lat: 45.9531, lng: 12.1181 },
+                { lat: 45.5538, lng: 12.2343 },
+                { lat: 45.9246, lng: 12.2080 },
+                { lat: 45.6869, lng: 12.0149 },
+                { lat: 45.2078, lng: 12.2905 },
+                { lat: 45.6604, lng: 12.5302 },
+                { lat: 45.3858, lng: 12.0074 },
+                { lat: 45.1848, lng: 11.8807 },
+                { lat: 45.1886, lng: 11.4644 },
+                { lat: 45.1566, lng: 11.7143 },
+                { lat: 45.2969, lng: 12.0350 },
+                { lat: 45.3489, lng: 11.6725 },
+                { lat: 44.9925, lng: 11.3578 },
+                { lat: 45.0581, lng: 11.4545 },
+                { lat: 45.0278, lng: 11.5900 },
+                { lat: 45.8836, lng: 13.2847 },
+                { lat: 45.9614, lng: 12.9768 },
+                { lat: 46.2753, lng: 13.1427 },
+                { lat: 46.1972, lng: 13.2629 },
+                { lat: 46.4343, lng: 12.8712 },
+                { lat: 46.1619, lng: 13.2105 },
+                { lat: 45.8924, lng: 13.5002 },
+               
+                { lat: 44.5978, lng: 10.1220 },
+                { lat: 44.7993, lng: 10.3382 },
+                { lat: 44.7624, lng: 10.6004 },
+                { lat: 44.6984, lng: 10.4485 },
+                { lat: 44.6020, lng: 10.5468 },
+                { lat: 44.5042, lng: 10.9458 },
+                { lat: 44.6789, lng: 11.0412 },
+                { lat: 44.2301, lng: 10.7702 },
+                { lat: 44.5389, lng: 11.5360 },
+                { lat: 44.1973, lng: 10.9369 },
+                { lat: 44.8376, lng: 11.6117 },
+                { lat: 44.5151, lng: 11.8285 },
+                { lat: 44.2008, lng: 12.4049 },
+                { lat: 43.9473, lng: 11.9085 },
+                
+                { lat: 45.8484, lng: 12.8154 },
+                { lat: 46.0410, lng: 9.3022 },
+                { lat: 46.0230, lng: 9.3786 },
+                { lat: 45.9592, lng: 9.3017 },
+                { lat: 45.9503, lng: 9.4449 },
+                { lat: 46.0838, lng: 9.3257 },
+                { lat: 45.2931, lng: 9.3623 },
+                { lat: 45.3579, lng: 9.4427 },
+                { lat: 45.1660, lng: 9.5825 },
+                
+                { lat: 45.7035, lng: 9.2897 },
+                { lat: 45.6009, lng: 9.1335 },
+                { lat: 45.6618, lng: 9.2685 }
+        ]
+    </script>
+    <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js">
+    </script>
+    <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDgzMEFQObK4MD8UVsQF6Ovm11nq1mmrWo&callback=initMap">
+    </script>
+</body>
+</html>
