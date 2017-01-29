@@ -17,6 +17,33 @@ namespace Cleveral
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            string idStructure = "1";
+            if (!string.IsNullOrWhiteSpace(Request.QueryString["struct"]))
+            {
+                idStructure = Request.QueryString["struct"];
+            }
+            StructureImage.ImageUrl = Master.ImgApp + "/structure/structure" + idStructure + ".jpg";
+
+            switch (idStructure)
+            {
+                case "2":
+                    TitlePage.Text = "Linea elettrica 132 kV Semplice Terna “Poggio a Caiano - Quarrata”";
+                    Line.Text = "Poggio a Caiano - Quarrata";
+                    Province.Text = "Quarrata (PT)";
+                    Latitude.Text = "43.851220";
+                    Longitude.Text = "10.969806";
+                    break;
+                case "3":
+                    TitlePage.Text = "Linea elettrica 132 kV Semplice Terna “Sesto – Pontassieve”";
+                    Line.Text = "Sesto – Pontassieve";
+                    Province.Text = "Firenze (FI)";
+                    Latitude.Text = "43.795735";
+                    Longitude.Text = "11.322664";
+                    break;
+                default:
+                    break;
+            }
+            
             DataTable dt = new DataTable();
             AlertsManager alMng = new AlertsManager();
             string[] parameters = { "IdStatus" };

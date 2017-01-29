@@ -178,7 +178,7 @@
                                                     <asp:Label ID="CreationDateLabel" runat="server" Text="Date"></asp:Label>
                                                 </div>
                                                 <div class="col-xs-5 dashboardCellHeader">
-                                                    <asp:Label ID="CityLabel" runat="server" Text="Location"></asp:Label>
+                                                    <asp:Label ID="ObjectLabel" runat="server" Text="Object"></asp:Label>
                                                 </div>
                                                 <div class="col-xs-2 dashboardCellHeader">
                                                 </div>
@@ -192,7 +192,8 @@
                                                         <asp:Label ID="CreationDate" runat="Server" Text='<%# GetDate(Eval("CreationDate").ToString()) %>' />
                                                     </div>
                                                     <div class="col-xs-5 dashboardCell">
-                                                        <asp:Label ID="City" runat="Server" Text='<%# Eval("City") + " (" + Eval("Plate") + ")" %>' />
+                                                        <%--<asp:Label ID="City" runat="Server" Text='<%# Eval("City") + " (" + Eval("Plate") + ")" %>' />--%>
+                                                        <asp:Label ID="ObjectId" runat="Server" Text='<%# "Pylon " + Eval("Id") %>' />
                                                     </div>
                                                     <div class="col-xs-2" style="padding-top: 5px;">
                                                         <asp:HiddenField ID="IdAnomaly" runat="Server" Value='<%# Eval("IdAnomaly") %>' />

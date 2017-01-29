@@ -176,6 +176,8 @@
     <Content Include="css\Site.css" />
     <Content Include="Default.aspx" />
     <Content Include="ErrorPage.html" />
+    <Content Include="home\Reports.aspx" />
+    <Content Include="home\Structures.aspx" />
     <Content Include="img\alertRosso.png" />
     <Content Include="img\Logo.png" />
     <Content Include="Login.aspx" />
@@ -282,6 +284,20 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="home\Reports.aspx.cs">
+      <DependentUpon>Reports.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="home\Reports.aspx.designer.cs">
+      <DependentUpon>Reports.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="home\Structures.aspx.cs">
+      <DependentUpon>Structures.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="home\Structures.aspx.designer.cs">
+      <DependentUpon>Structures.aspx</DependentUpon>
     </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>

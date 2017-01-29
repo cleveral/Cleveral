@@ -62,13 +62,15 @@ namespace Cleveral
             {
                 Image AnomalyImg = e.Row.FindControl("AnomalyImg") as Image;
                 HiddenField IdAnomaly = e.Row.FindControl("IdAnomaly") as HiddenField;
+                HyperLink GoToAlert = e.Row.FindControl("GoToAlert") as HyperLink;
                 switch (IdAnomaly.Value)
                 {
                     case "2":
-                        AnomalyImg.ImageUrl = Master.ImgApp + "strucW.png";
+                        AnomalyImg.ImageUrl = Master.ImgApp + "warning.png";
                         break;
                     case "3":
-                        AnomalyImg.ImageUrl = Master.ImgApp + "strucA.png";
+                        AnomalyImg.ImageUrl = Master.ImgApp + "alarm.png";
+                        GoToAlert.NavigateUrl = "StructureDetail.aspx?struct=2";
                         break;
                     default:
                         break;

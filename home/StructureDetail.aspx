@@ -98,10 +98,13 @@
 
     </script>
     <style type="text/css">
+        .listSensors li {
+            margin: 10px 0px;
+        }
     </style>
 
     <div class="container">
-        <h2>Chiesa di Santa Maria Lacrimosa degli Alemanni</h2>
+        <h2><asp:Label ID="TitlePage" runat="server" Text="Linea elettrica 132 Kv Semplice Terna “Agordo – Vellai”"></asp:Label></h2>
 
         <div class="row">
             <div class="col-md-3" style="padding: 0px 5px">
@@ -112,7 +115,7 @@
                     </div>
                     <div style="width: 50%; margin-left: 25%; margin-top: 10px;">
                         <asp:LinkButton ID="LinkStructureImage" runat="server" CssClass="thumbnail">
-                            <asp:Image ID="StructureImage" runat="server" ImageUrl="~/img/mvp/structure/alemanni100.jpg" Style="width: 100%; max-height: 250px;" />
+                            <asp:Image ID="StructureImage" runat="server" Style="width: 100%; max-height: 250px;" />
                             <span class="glyphicon glyphicon-pencil"></span>
                         </asp:LinkButton>
                     </div>
@@ -122,9 +125,13 @@
                             <h5>Structure</h5>
                             <div style="margin-left: 10px;">
                                 <b>
-                                    <asp:Label ID="Label4" runat="server" Text="Address:"></asp:Label></b>&nbsp;<asp:Label ID="Label5" runat="server" Text="Via Mazzini, 65"></asp:Label><br />
+                                    <asp:Label ID="LineDescr" runat="server" Text="Line:"></asp:Label></b>&nbsp;<asp:Label ID="Line" runat="server" Text="Agordo – Vellai"></asp:Label><br />
                                 <b>
-                                    <asp:Label ID="Label2" runat="server" Text="Province:"></asp:Label></b>&nbsp;<asp:Label ID="Test" runat="server" Text="Bologna (BO)"></asp:Label><br />
+                                    <asp:Label ID="ProvinceDescr" runat="server" Text="Province:"></asp:Label></b>&nbsp;<asp:Label ID="Province" runat="server" Text="Santa Giustina (BL)"></asp:Label><br />
+                                <b>
+                                    <asp:Label ID="LatitudeDescr" runat="server" Text="Latitude:"></asp:Label></b>&nbsp;<asp:Label ID="Latitude" runat="server" Text="46.080528"></asp:Label><br />
+                                <b>
+                                    <asp:Label ID="LongitudeDescr" runat="server" Text="Longitude:"></asp:Label></b>&nbsp;<asp:Label ID="Longitude" runat="server" Text="12.039681"></asp:Label><br />
                             </div>
                         </div>
 
@@ -134,22 +141,22 @@
                                 <b>
                                     <asp:Label ID="Label9" runat="server" Text="Monitoring type:"></asp:Label></b>&nbsp;<asp:Label ID="Label10" runat="server" Text="structural monitoring"></asp:Label><br />
                                 <b>
-                                    <asp:Label ID="Label11" runat="server" Text="Monitoring strat date:"></asp:Label></b>&nbsp;<asp:Label ID="Label12" runat="server" Text="12/09/2016"></asp:Label><br />
+                                    <asp:Label ID="Label11" runat="server" Text="Monitoring start date:"></asp:Label></b>&nbsp;<asp:Label ID="Label12" runat="server" Text="12/09/2016"></asp:Label><br />
                             </div>
                         </div>
 
                         <div class="infoStructureSection">
-                            <h5>Contatti</h5>
+                            <h5>Contacts</h5>
                             <div style="margin-left: 10px;">
                                 <b>
-                                    <asp:Label ID="Label14" runat="server" Text="Client:"></asp:Label></b>&nbsp;<asp:LinkButton ID="LinkButton2" runat="server">
+                                    <asp:Label ID="Label14" runat="server" Text="Referent:"></asp:Label></b>&nbsp;<asp:LinkButton ID="LinkButton2" runat="server">
                                         <span aria-hidden="true" class="glyphicon glyphicon-user"></span>
                                         <asp:Label ID="Label15" runat="server" Text="Mario Rossi"></asp:Label>
                                     </asp:LinkButton><br />
                                 <b>
                                     <asp:Label ID="Label1" runat="server" Text="Telephone:"></asp:Label></b>&nbsp;<asp:Label ID="Label3" runat="server" Text="051 429 2857"></asp:Label><br />
                                 <b>
-                                    <asp:Label ID="Label6" runat="server" Text="Email:"></asp:Label></b>&nbsp;<asp:Label ID="Label7" runat="server" Text="chiesaAlemanni@gmail.com"></asp:Label><br />
+                                    <asp:Label ID="Label6" runat="server" Text="Email:"></asp:Label></b>&nbsp;<asp:Label ID="Label7" runat="server" Text="mario.rossi@gmail.com"></asp:Label><br />
                             </div>
                         </div>
                         <div class="infoStructureSection">
@@ -161,7 +168,7 @@
                                 </asp:LinkButton><br />
                                 <asp:LinkButton ID="Report" runat="server">
                                     <span aria-hidden="true" class="glyphicon glyphicon-download-alt"></span>
-                                    <asp:Label ID="Label8" runat="server" Text="Final report"></asp:Label>
+                                    <asp:Label ID="Label8" runat="server" Text="Installation report"></asp:Label>
                                 </asp:LinkButton>
                             </div>
                         </div>
@@ -274,8 +281,8 @@
                         </div>
                         <div style="overflow: hidden; margin-top: 10px;">
                             <div style="width: 50%; float: left;">
-                                <asp:LinkButton ID="LinkButton10" runat="server" CssClass="thumbnail" Style="max-height: 600px;">
-                                    <asp:Image ID="Image1" runat="server" ImageUrl="~/img/mvp/structure/schema_struttura.png" Style="width: 100%;" />
+                                <asp:LinkButton ID="LinkButton10" runat="server" CssClass="thumbnail">
+                                    <asp:Image ID="Outline" runat="server" Style="width: 100%;" />
                                     <span class="glyphicon glyphicon-pencil"></span>
                                 </asp:LinkButton>
                             </div>
@@ -284,25 +291,33 @@
                                 <span>All sensors</span>
                                     <span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>
                                 </asp:LinkButton>
-                                <ul>
-                                    <li>
-                                        <asp:LinkButton ID="LinkButton12" runat="server" Text="Temperature">
+                                <ul class="listSensors">
+                                    <li id="SensorFrequency" runat="server">
+                                        <asp:LinkButton ID="LinkButton12" runat="server" Text="Frequency">
                                         </asp:LinkButton>
                                     </li>
-                                    <li>
-                                        <asp:LinkButton ID="LinkButton13" runat="server" Text="Humidity">
+                                    <li id="SensorTemperature" runat="server">
+                                        <asp:LinkButton ID="LinkButton13" runat="server" Text="Temperature">
                                         </asp:LinkButton>
                                     </li>
-                                    <li>
-                                        <asp:LinkButton ID="LinkButton14" runat="server" Text="Strain gauges 1">
+                                    <li id="SensorSlope" runat="server">
+                                        <asp:LinkButton ID="LinkButton14" runat="server" Text="Slope">
                                         </asp:LinkButton>
                                     </li>
-                                    <li>
-                                        <asp:LinkButton ID="LinkButton15" runat="server" Text="Strain gauges 2">
+                                    <li id="SensorHumidity" runat="server">
+                                        <asp:LinkButton ID="LinkButton15" runat="server" Text="Relative Humidity">
                                         </asp:LinkButton>
                                     </li>
-                                    <li>
-                                        <asp:LinkButton ID="LinkButton16" runat="server" Text="Strain gauges 3">
+                                    <li id="SensorCO2" runat="server">
+                                        <asp:LinkButton ID="LinkButton16" runat="server" Text="CO2">
+                                        </asp:LinkButton>
+                                    </li>
+                                    <li id="SensorAirQuality" runat="server">
+                                        <asp:LinkButton ID="LinkButton5" runat="server" Text="Air quality index">
+                                        </asp:LinkButton>
+                                    </li>
+                                    <li id="SensorElectricInsulation" runat="server">
+                                        <asp:LinkButton ID="LinkButton6" runat="server" Text="Electric insulation">
                                         </asp:LinkButton>
                                     </li>
                                 </ul>

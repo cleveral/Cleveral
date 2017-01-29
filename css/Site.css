@@ -113,16 +113,16 @@ input[type="select"] {
 }
 
 .navbar-inverse {
-    background-color: #087BB2;
-    border-color: #065A82;
+    background-color: #4BA8D5;
+    border-color: #087BB2;
 }
 
 .navbar-inverse .navbar-brand {
-    color: #EEF7FC;
+    color: #ffffff;
 }
 
 .navbar-inverse .navbar-nav > li > a {
-    color: #EEF7FC;
+    color: #ffffff;
 }
 
 .navbar-inverse .navbar-brand:hover, .navbar-inverse .navbar-brand:focus {

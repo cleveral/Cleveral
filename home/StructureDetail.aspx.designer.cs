@@ -13,6 +13,15 @@ namespace Cleveral {
     public partial class StructureDetail {
         
         /// <summary>
+        /// Controllo TitlePage.
+        /// </summary>
+        /// <remarks>
+        /// Campo generato automaticamente.
+        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label TitlePage;
+        
+        /// <summary>
         /// Controllo LinkStructureImage.
         /// </summary>
         /// <remarks>
@@ -31,40 +40,76 @@ namespace Cleveral {
         protected global::System.Web.UI.WebControls.Image StructureImage;
         
         /// <summary>
-        /// Controllo Label4.
+        /// Controllo LineDescr.
         /// </summary>
         /// <remarks>
         /// Campo generato automaticamente.
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label4;
+        protected global::System.Web.UI.WebControls.Label LineDescr;
         
         /// <summary>
-        /// Controllo Label5.
+        /// Controllo Line.
         /// </summary>
         /// <remarks>
         /// Campo generato automaticamente.
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label5;
+        protected global::System.Web.UI.WebControls.Label Line;
         
         /// <summary>
-        /// Controllo Label2.
+        /// Controllo ProvinceDescr.
         /// </summary>
         /// <remarks>
         /// Campo generato automaticamente.
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label2;
+        protected global::System.Web.UI.WebControls.Label ProvinceDescr;
         
         /// <summary>
-        /// Controllo Test.
+        /// Controllo Province.
         /// </summary>
         /// <remarks>
         /// Campo generato automaticamente.
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Test;
+        protected global::System.Web.UI.WebControls.Label Province;
+        
+        /// <summary>
+        /// Controllo LatitudeDescr.
+        /// </summary>
+        /// <remarks>
+        /// Campo generato automaticamente.
+        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LatitudeDescr;
+        
+        /// <summary>
+        /// Controllo Latitude.
+        /// </summary>
+        /// <remarks>
+        /// Campo generato automaticamente.
+        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Latitude;
+        
+        /// <summary>
+        /// Controllo LongitudeDescr.
+        /// </summary>
+        /// <remarks>
+        /// Campo generato automaticamente.
+        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LongitudeDescr;
+        
+        /// <summary>
+        /// Controllo Longitude.
+        /// </summary>
+        /// <remarks>
+        /// Campo generato automaticamente.
+        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Longitude;
         
         /// <summary>
         /// Controllo Label9.
@@ -364,13 +409,13 @@ namespace Cleveral {
         protected global::System.Web.UI.WebControls.LinkButton LinkButton10;
         
         /// <summary>
-        /// Controllo Image1.
+        /// Controllo Outline.
         /// </summary>
         /// <remarks>
         /// Campo generato automaticamente.
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image Image1;
+        protected global::System.Web.UI.WebControls.Image Outline;
         
         /// <summary>
         /// Controllo LinkButton11.
@@ -382,6 +427,15 @@ namespace Cleveral {
         protected global::System.Web.UI.WebControls.LinkButton LinkButton11;
         
         /// <summary>
+        /// Controllo SensorFrequency.
+        /// </summary>
+        /// <remarks>
+        /// Campo generato automaticamente.
+        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl SensorFrequency;
+        
+        /// <summary>
         /// Controllo LinkButton12.
         /// </summary>
         /// <remarks>
@@ -389,6 +443,15 @@ namespace Cleveral {
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton LinkButton12;
+        
+        /// <summary>
+        /// Controllo SensorTemperature.
+        /// </summary>
+        /// <remarks>
+        /// Campo generato automaticamente.
+        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl SensorTemperature;
         
         /// <summary>
         /// Controllo LinkButton13.
@@ -400,6 +463,15 @@ namespace Cleveral {
         protected global::System.Web.UI.WebControls.LinkButton LinkButton13;
         
         /// <summary>
+        /// Controllo SensorSlope.
+        /// </summary>
+        /// <remarks>
+        /// Campo generato automaticamente.
+        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl SensorSlope;
+        
+        /// <summary>
         /// Controllo LinkButton14.
         /// </summary>
         /// <remarks>
@@ -407,6 +479,15 @@ namespace Cleveral {
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton LinkButton14;
+        
+        /// <summary>
+        /// Controllo SensorHumidity.
+        /// </summary>
+        /// <remarks>
+        /// Campo generato automaticamente.
+        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl SensorHumidity;
         
         /// <summary>
         /// Controllo LinkButton15.
@@ -418,6 +499,15 @@ namespace Cleveral {
         protected global::System.Web.UI.WebControls.LinkButton LinkButton15;
         
         /// <summary>
+        /// Controllo SensorCO2.
+        /// </summary>
+        /// <remarks>
+        /// Campo generato automaticamente.
+        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl SensorCO2;
+        
+        /// <summary>
         /// Controllo LinkButton16.
         /// </summary>
         /// <remarks>
@@ -425,6 +515,42 @@ namespace Cleveral {
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton LinkButton16;
+        
+        /// <summary>
+        /// Controllo SensorAirQuality.
+        /// </summary>
+        /// <remarks>
+        /// Campo generato automaticamente.
+        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl SensorAirQuality;
+        
+        /// <summary>
+        /// Controllo LinkButton5.
+        /// </summary>
+        /// <remarks>
+        /// Campo generato automaticamente.
+        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton LinkButton5;
+        
+        /// <summary>
+        /// Controllo SensorElectricInsulation.
+        /// </summary>
+        /// <remarks>
+        /// Campo generato automaticamente.
+        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl SensorElectricInsulation;
+        
+        /// <summary>
+        /// Controllo LinkButton6.
+        /// </summary>
+        /// <remarks>
+        /// Campo generato automaticamente.
+        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton LinkButton6;
         
         /// <summary>
         /// Controllo Area1Img.

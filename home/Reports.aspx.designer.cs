@@ -7,9 +7,9 @@
 // </generato automaticamente>
 //------------------------------------------------------------------------------
 
-namespace Cleveral {
+namespace Cleveral.home {
     
     
-    public partial class Contact {
+    public partial class Reports {
     }
 }

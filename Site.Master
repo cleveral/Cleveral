@@ -57,11 +57,19 @@
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
                         <li><a runat="server" href="~/home">Home</a></li>
-                        <li><a runat="server" href="~/About">Info</a></li>
-                        <li><a runat="server" href="~/Contact">Conctact us</a></li>
+                        <asp:LoginView runat="server" ViewStateMode="Disabled">
+                            <AnonymousTemplate>
+                                <li><a runat="server" href="~/About">Info</a></li>
+                                <li><a runat="server" href="~/Contact">Conctact us</a></li>
+                            </AnonymousTemplate>
+                            <LoggedInTemplate>
+                                <li><a runat="server" href="~/home/Structures">Structures</a></li>
+                                <li><a runat="server" href="~/home/Reports">Reports</a></li>
+                            </LoggedInTemplate>
+                        </asp:LoginView>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <li class="dropdown">
+                        <li class="dropdown" style="display:none">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="padding: 8px;"><asp:Image AlternateText="Language" ImageUrl="~/img/en.png" runat="server" style="width: 35px;"/></a>
                             <ul class="dropdown-menu">
                                 <li><a href="#">English</a></li>

@@ -8,6 +8,7 @@
 </asp:Content>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
+    <script src="../Scripts/jquery-ui.min.js"></script>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
         google.charts.load('current', { 'packages': ['line'] });
@@ -123,16 +124,43 @@
 
         if (top.location.href != self.location.href)
             top.location.href = self.location.href;
+
+        $(function () {
+            function addUser() {
+            }
+
+            dialog = $("#dialog-form").dialog({
+                autoOpen: false,
+                height: 450,
+                width: 400,
+                modal: true,
+                buttons: {
+                    "Save": addUser,
+                    Cancel: function () {
+                        dialog.dialog("close");
+                    }
+                },
+                close: function () {
+                    form[0].reset();
+                    allFields.removeClass("ui-state-error");
+                }
+            });
+
+            $("#edit-structure").button().on("click", function () {
+                event.preventDefault();
+                dialog.dialog("open");
+            });
+        });
     </script>
     <style type="text/css">
 
     </style>
 
     <div class="container">
-        <h2>Chiesa di Santa Maria Lacrimosa degli Alemanni</h2>
+        <h2><asp:Label ID="TitlePage" runat="server" Text="Linea elettrica 132 Kv Semplice Terna “Agordo – Vellai”"></asp:Label></h2>
 
         <div class="row">
-            <div class="col-md-3" style="padding: 0px 5px">
+<div class="col-md-3" style="padding: 0px 5px">
 
                 <div class="diagramContainer" style="padding: 10px; margin-top: 5px;">
                     <div class="diagramHeader">
@@ -140,20 +168,23 @@
                     </div>
                     <div style="width: 50%; margin-left: 25%; margin-top: 10px;">
                         <asp:LinkButton ID="LinkStructureImage" runat="server" CssClass="thumbnail">
-                            <asp:Image ID="StructureImage" runat="server" ImageUrl="~/img/mvp/structure/alemanni100.jpg" Style="width: 100%; max-height: 250px;" />
+                            <asp:Image ID="StructureImage" runat="server" Style="width: 100%; max-height: 250px;" />
                             <span class="glyphicon glyphicon-pencil"></span>
                         </asp:LinkButton>
                     </div>
 
-
-                    <div style="margin-top: 10px">
+                    <div class="infoStructure">
                         <div class="infoStructureSection">
                             <h5>Structure</h5>
                             <div style="margin-left: 10px;">
                                 <b>
-                                    <asp:Label ID="Label4" runat="server" Text="Address:"></asp:Label></b>&nbsp;<asp:Label ID="Label5" runat="server" Text="Via Mazzini, 65"></asp:Label><br />
+                                    <asp:Label ID="LineDescr" runat="server" Text="Line:"></asp:Label></b>&nbsp;<asp:Label ID="Line" runat="server" Text="Agordo – Vellai"></asp:Label><br />
                                 <b>
-                                    <asp:Label ID="Label2" runat="server" Text="Province:"></asp:Label></b>&nbsp;<asp:Label ID="Test" runat="server" Text="Bologna (BO)"></asp:Label><br />
+                                    <asp:Label ID="ProvinceDescr" runat="server" Text="Province:"></asp:Label></b>&nbsp;<asp:Label ID="Province" runat="server" Text="Santa Giustina (BL)"></asp:Label><br />
+                                <b>
+                                    <asp:Label ID="LatitudeDescr" runat="server" Text="Latitude:"></asp:Label></b>&nbsp;<asp:Label ID="Latitude" runat="server" Text="46.080528"></asp:Label><br />
+                                <b>
+                                    <asp:Label ID="LongitudeDescr" runat="server" Text="Longitude:"></asp:Label></b>&nbsp;<asp:Label ID="Longitude" runat="server" Text="12.039681"></asp:Label><br />
                             </div>
                         </div>
 
@@ -163,22 +194,22 @@
                                 <b>
                                     <asp:Label ID="Label9" runat="server" Text="Monitoring type:"></asp:Label></b>&nbsp;<asp:Label ID="Label10" runat="server" Text="structural monitoring"></asp:Label><br />
                                 <b>
-                                    <asp:Label ID="Label11" runat="server" Text="Monitoring strat date:"></asp:Label></b>&nbsp;<asp:Label ID="Label12" runat="server" Text="12/09/2016"></asp:Label><br />
+                                    <asp:Label ID="Label11" runat="server" Text="Monitoring start date:"></asp:Label></b>&nbsp;<asp:Label ID="Label12" runat="server" Text="12/09/2016"></asp:Label><br />
                             </div>
                         </div>
 
                         <div class="infoStructureSection">
-                            <h5>Contatti</h5>
+                            <h5>Contacts</h5>
                             <div style="margin-left: 10px;">
                                 <b>
-                                    <asp:Label ID="Label14" runat="server" Text="Client:"></asp:Label></b>&nbsp;<asp:LinkButton ID="LinkButton2" runat="server">
+                                    <asp:Label ID="Label14" runat="server" Text="Referent:"></asp:Label></b>&nbsp;<asp:LinkButton ID="LinkButton2" runat="server">
                                         <span aria-hidden="true" class="glyphicon glyphicon-user"></span>
                                         <asp:Label ID="Label15" runat="server" Text="Mario Rossi"></asp:Label>
                                     </asp:LinkButton><br />
                                 <b>
                                     <asp:Label ID="Label1" runat="server" Text="Telephone:"></asp:Label></b>&nbsp;<asp:Label ID="Label3" runat="server" Text="051 429 2857"></asp:Label><br />
                                 <b>
-                                    <asp:Label ID="Label6" runat="server" Text="Email:"></asp:Label></b>&nbsp;<asp:Label ID="Label7" runat="server" Text="chiesaAlemanni@gmail.com"></asp:Label><br />
+                                    <asp:Label ID="Label6" runat="server" Text="Email:"></asp:Label></b>&nbsp;<asp:Label ID="Label7" runat="server" Text="mario.rossi@gmail.com"></asp:Label><br />
                             </div>
                         </div>
                         <div class="infoStructureSection">
@@ -190,22 +221,96 @@
                                 </asp:LinkButton><br />
                                 <asp:LinkButton ID="Report" runat="server">
                                     <span aria-hidden="true" class="glyphicon glyphicon-download-alt"></span>
-                                    <asp:Label ID="Label8" runat="server" Text="Final report"></asp:Label>
+                                    <asp:Label ID="Label8" runat="server" Text="Installation report"></asp:Label>
                                 </asp:LinkButton>
                             </div>
+                        </div>
+                        <div style="text-align: right">
+                            <button id="edit-structure" type="button" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>&nbsp;Modify</button>
                         </div>
                     </div>
                 </div>
 
+                <div id="dialog-form" title="Structure details">
+                    <fieldset>
+                        <div class="infoStructure">
+                            <div class="infoStructureSection">
+                                <h5>Structure</h5>
+                                <div style="margin-left: 10px;">
+                                    <table>
+                                        <tr>
+                                            <td>
+                                                <b>
+                                                    <asp:Label ID="Label16" runat="server" Text="Address:"></asp:Label></b>
+                                            </td>
+                                            <td>
+                                                <asp:TextBox ID="Label17" runat="server" Text="Via Mazzini, 65" CssClass="text ui-widget-content ui-corner-all"></asp:TextBox>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <b>
+                                                    <asp:Label ID="Label18" runat="server" Text="Province:"></asp:Label></b>
+                                            </td>
+                                            <td>
+                                                <asp:TextBox ID="Label19" runat="server" Text="Bologna (BO)" CssClass="text ui-widget-content ui-corner-all"></asp:TextBox>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
 
+                            <div class="infoStructureSection">
+                                <h5>Service</h5>
+
+                                <div style="margin-left: 10px;">
+                                    <table>
+                                        <tr>
+                                            <td><b><asp:Label ID="Label20" runat="server" Text="Monitoring type:"></asp:Label></b></td>
+                                            <td><asp:TextBox ID="Label21" runat="server" Text="structural monitoring" CssClass="text ui-widget-content ui-corner-all"></asp:TextBox></td>
+                                        </tr>
+                                        <tr>
+                                            <td><b><asp:Label ID="Label22" runat="server" Text="Monitoring strat date:"></asp:Label></b></td>
+                                            <td><asp:TextBox ID="Label23" runat="server" Text="12/09/2016" CssClass="text ui-widget-content ui-corner-all"></asp:TextBox></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <div class="infoStructureSection">
+                                <h5>Contatti</h5>
+                                <div style="margin-left: 10px;">
+                                    <table>
+                                        <tr>
+                                            <td><b><span aria-hidden="true" class="glyphicon glyphicon-user"></span><asp:Label ID="Label24" runat="server" Text="Client:"></asp:Label></b></td>
+                                            <td><asp:LinkButton ID="LinkButton4" runat="server">
+                                            <asp:TextBox ID="Label25" runat="server" Text="Mario Rossi" CssClass="text ui-widget-content ui-corner-all"></asp:TextBox>
+                                        </asp:LinkButton></td>
+                                        </tr>
+                                        <tr>
+                                            <td><b><asp:Label ID="Label26" runat="server" Text="Telephone:"></asp:Label></b></td>
+                                            <td><asp:TextBox ID="Label27" runat="server" Text="051 429 2857"></asp:TextBox></td>
+                                        </tr>
+                                        <tr>
+                                            <td><b><asp:Label ID="Label28" runat="server" Text="Email:"></asp:Label></b></td>
+                                            <td><asp:TextBox ID="Label29" runat="server" Text="chiesaAlemanni@gmail.com" CssClass="text ui-widget-content ui-corner-all"></asp:TextBox></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Allow form submission with keyboard without duplicating the dialog button -->
+                        <input type="submit" tabindex="-1" style="position: absolute; top: -1000px">
+                    </fieldset>
+                </div>
             </div>
-
             <div class="col-md-6" style="padding: 0px;">
                 <div class="col-sm-6" style="padding: 0px 5px;">
                     <div class="diagramContainer graphic col-xs-12">
                         <div class="row rowManage">
                             <div class="col-sm-6" style="padding: 0px;">
-                                <asp:LinkButton ID="LinkButton3" runat="server" Text="Temperature"></asp:LinkButton>
+                                <asp:LinkButton ID="LinkButton3" runat="server" Text="Frequency"></asp:LinkButton>
                             </div>
                             <div class="col-sm-6">
                                 <div class="col-xs-11">
@@ -239,7 +344,7 @@
                     <div class="diagramContainer graphic col-xs-12">
                         <div class="row rowManage">
                             <div class="col-sm-6" style="padding: 0px;">
-                                <asp:LinkButton ID="LinkButton8" runat="server" Text="Humidity"></asp:LinkButton>
+                                <asp:LinkButton ID="LinkButton8" runat="server" Text="Temperature"></asp:LinkButton>
                             </div>
                             <div class="col-sm-6">
                                 <div class="col-xs-11">
@@ -275,7 +380,7 @@
                     <div class="diagramContainer graphic col-xs-12">
                         <div style="overflow: hidden; margin: 0px 5px 4px 5px;">
                             <div style="float: left">
-                                <asp:LinkButton ID="Sensoretest" runat="server" Text="Strain gauges 1">Strain gauges 1</asp:LinkButton>
+                                <asp:LinkButton ID="Sensoretest" runat="server" Text="Slope"></asp:LinkButton>
                             </div>
                             <div style="float: right">
                                 <div style="float: left">
@@ -296,7 +401,7 @@
 
                         <div style="overflow: hidden; margin: 0px 5px 4px 5px;">
                             <div style="float: left">
-                                <asp:LinkButton ID="LinkButton6" runat="server" Text="Strain gauges 2">Strain gauges 2</asp:LinkButton>
+                                <asp:LinkButton ID="LinkButton6" runat="server" Text="Relative Humidity"></asp:LinkButton>
                             </div>
                             <div style="float: right">
                                 <div style="float: left">
@@ -315,7 +420,7 @@
                 <div class="col-sm-6" style="padding: 0px 5px;">
                     <div class="diagramContainer graphic col-xs-12">
                         <div>
-                            <asp:Label ID="Sensore5" runat="server" Text="Strain gauges 3"></asp:Label>
+                            <asp:Label ID="Sensore5" runat="server" Text="CO2"></asp:Label>
                             <div id="sensore5Chart" class="graphicChart"></div>
                         </div>
                     </div>
@@ -323,7 +428,7 @@
                 <div class="col-sm-6" style="padding: 0px 5px;">
                     <div class="diagramContainer graphic col-xs-12">
                         <div>
-                            <asp:Label ID="Sensore6" runat="server" Text="Strain gauges 4"></asp:Label>
+                            <asp:Label ID="Sensore6" runat="server" Text="Electric insulation"></asp:Label>
                             <div id="sensore6Chart" class="graphicChart"></div>
                         </div>
                     </div>
