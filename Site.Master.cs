@@ -32,10 +32,10 @@ namespace Cleveral
             switch (IdApplication)
             {
                 case 2:
-                    ImgApp = "~/img/mvp/";
+                    ImgApp = "~/img/terna/";
                     break;
                 case 3:
-                    ImgApp = "~/img/terna/";
+                    ImgApp = "~/img/mvp/";
                     break;
                 default:
                     break;
