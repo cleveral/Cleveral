@@ -300,6 +300,15 @@ input[type="select"] {
         padding: 6px 3px;
     }
 
+    .dashboardNotify .dashboardImg {
+        padding-top: 7px;
+        padding-left: 10px;
+    }
+
+    .dashboardNotify .dashboardImg img {
+        height: 25px;
+    }
+
     .tbContainer {
         overflow: hidden;
         padding: 0px;

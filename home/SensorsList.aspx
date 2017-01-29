@@ -338,7 +338,7 @@
                 </div>--%>
             </div>
 
-            <div class="col-md-3" style="padding: 0px 5px">
+<div class="col-md-3" style="padding: 0px 5px">
 
                 <div class="diagramContainer" style="padding: 10px; margin-top: 5px;">
                     <div class="diagramHeader">
@@ -349,8 +349,8 @@
                             <tr>
                                 <th scope="col">
                                     <div class="col-xs-12 tbContainer">
-
-                                        <div class="col-xs-8 dashboardCellHeader" style="padding-left: 30px">
+                                        <div class="col-xs-2"></div>
+                                        <div class="col-xs-6 dashboardCellHeader">
                                             <span id="MainContent_Alerts_CreationDateLabel">Area</span>
                                         </div>
                                         <div class="col-xs-4 dashboardCellHeader">
@@ -364,9 +364,11 @@
                                 <td>
                                     <div class="col-xs-12 tbContainer dashboardLink">
                                         <a id="MainContent_Alerts_GoToAlert_0" href="StructureDetail.aspx" target="_blank" style="overflow: hidden; width: 100%; height: 100%; display: block;">
-
-                                            <div class="col-xs-8 dashboardCell" style="padding-left: 30px">
-                                                <span id="MainContent_Alerts_CreationDate_0">Area 1</span>
+                                            <div class="col-xs-2 dashboardImg">
+                                                <asp:Image ID="Area1Img" runat="server" AlternateText="Electric" ImageUrl="~/img/terna/electric.png"  />
+                                            </div>
+                                            <div class="col-xs-6 dashboardCell">
+                                                <span id="MainContent_Alerts_CreationDate_0">Electric</span>
                                             </div>
                                             <div class="col-xs-4" style="padding-top: 10px;">
                                                 <div id="status1" class="structureStatus structureStatusNormal"></div>
@@ -379,9 +381,11 @@
                                 <td>
                                     <div class="col-xs-12 tbContainer dashboardLink">
                                         <a id="MainContent_Alerts_GoToAlert_0" href="StructureDetail.aspx" target="_blank" style="overflow: hidden; width: 100%; height: 100%; display: block;">
-
-                                            <div class="col-xs-8 dashboardCell" style="padding-left: 30px">
-                                                <span id="MainContent_Alerts_CreationDate_0">Area 2</span>
+                                            <div class="col-xs-2 dashboardImg">
+                                                <asp:Image ID="Area2Img" runat="server" AlternateText="Structure" ImageUrl="~/img/terna/structure.png"  />
+                                            </div>
+                                            <div class="col-xs-6 dashboardCell">
+                                                <span id="MainContent_Alerts_CreationDate_0">Structure</span>
                                             </div>
                                             <div class="col-xs-4" style="padding-top: 10px;">
                                                 <div id="status1" class="structureStatus structureStatusWarning"></div>
@@ -394,9 +398,11 @@
                                 <td>
                                     <div class="col-xs-12 tbContainer dashboardLink">
                                         <a id="MainContent_Alerts_GoToAlert_0" href="StructureDetail.aspx" target="_blank" style="overflow: hidden; width: 100%; height: 100%; display: block;">
-
-                                            <div class="col-xs-8 dashboardCell" style="padding-left: 30px">
-                                                <span id="MainContent_Alerts_CreationDate_0">Area 3</span>
+                                            <div class="col-xs-2 dashboardImg">
+                                                <asp:Image ID="Area3Img" runat="server" AlternateText="Natural hazard" ImageUrl="~/img/terna/naturalHazard.png"  />
+                                            </div>
+                                            <div class="col-xs-6 dashboardCell">
+                                                <span id="MainContent_Alerts_CreationDate_0">Natural hazard</span>
                                             </div>
                                             <div class="col-xs-4" style="padding-top: 10px;">
                                                 <div id="status1" class="structureStatus structureStatusNormal"></div>
@@ -409,8 +415,8 @@
                                 <td>
                                     <div class="col-xs-12 tbContainer dashboardLink">
                                         <a id="MainContent_Alerts_GoToAlert_0" href="StructureDetail.aspx" target="_blank" style="overflow: hidden; width: 100%; height: 100%; display: block;">
-
-                                            <div class="col-xs-8 dashboardCell" style="padding-left: 30px">
+                                            <div class="col-xs-2"></div>
+                                            <div class="col-xs-6 dashboardCell">
                                                 <span id="MainContent_Alerts_CreationDate_0">Global</span>
                                             </div>
                                             <div class="col-xs-4" style="padding-top: 10px;">
@@ -423,11 +429,17 @@
                         </table>
                     </div>
                 </div>
-                <asp:Label ID="Label33" runat="server"></asp:Label>
 
+                <div class="diagramContainer" style="padding: 10px; margin-top: 5px;">
+                    <div class="diagramHeader">
+                        <h2>History</h2>
+                    </div>
+
+
+
+                </div>
 
             </div>
-
         </div>
     </div>
 </asp:Content>

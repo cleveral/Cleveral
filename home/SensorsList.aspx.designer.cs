@@ -292,13 +292,31 @@ namespace Cleveral {
         protected global::System.Web.UI.WebControls.Label Sensore6;
         
         /// <summary>
-        /// Controllo Label33.
+        /// Controllo Area1Img.
         /// </summary>
         /// <remarks>
         /// Campo generato automaticamente.
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label33;
+        protected global::System.Web.UI.WebControls.Image Area1Img;
+        
+        /// <summary>
+        /// Controllo Area2Img.
+        /// </summary>
+        /// <remarks>
+        /// Campo generato automaticamente.
+        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image Area2Img;
+        
+        /// <summary>
+        /// Controllo Area3Img.
+        /// </summary>
+        /// <remarks>
+        /// Campo generato automaticamente.
+        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image Area3Img;
         
         /// <summary>
         /// Proprietà Master.
